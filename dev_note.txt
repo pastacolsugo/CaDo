@@ -1,0 +1,10 @@
+You'll need:
+	-	git
+	-	node
+	-	npm
+	-	mongodb
+
+Generate ExpressJS application skeleton: use express-generator
+	https://www.npmjs.com/package/express-generator
+	npm install -g express-generator
+ 
