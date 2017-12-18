@@ -1,8 +1,8 @@
 You'll need:
-	-	git
-	-	node
-	-	npm
-	-	mongodb
+- git
+- node
+- npm
+- mongodb
 
 **************************************
 CHECK PROCEDURE on Ubuntu 16.04 LTS
@@ -12,7 +12,7 @@ To install stuff:
 suggested >> [sudo] apt-get install build-essentials
 >> [sudo] apt-get install nodejs
 >> [sudo] npm install npm -g //npm gets installed with nodejs, this is to check for the latest version
->> TO INSTALL MONGODB CHECK HERE https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+>> TO INSTALL MONGODB `sudo apt install mongodb`
 **************************************
 
 Generate ExpressJS application skeleton: use express-generator
