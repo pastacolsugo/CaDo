@@ -6,5 +6,9 @@ You'll need:
 
 Generate ExpressJS application skeleton: use express-generator
 	https://www.npmjs.com/package/express-generator
-	npm install -g express-generator
+	>> npm install -g express-generator
+	Use Pug as view engine to generate the ExpressApp. The name Jade has been claimed and they had to switch to pug.
+	>> express --view=pug
+	If there are files in the directory it might overwrite them.
+
  
