@@ -1,0 +1,5 @@
+If you want to contribute to this project, you have to follow some basic rules:
+1. When you make changes, push them to a branch and then create a pull request.
+2. Write issues, pull request and code comments in English
+3. Code in a comprehensible way: use descriptive variable names and write comments
+4. If you open an issue, then always write the expected behaviour and the current behaviour, Also, include details on where you're running the software.
