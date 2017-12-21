@@ -37,3 +37,5 @@ To install the necessary packages you'll have to run
 in the proj directory.
 
 Then, run typing `npn start`
+
+While developing on Chrome locally, you can Refresh the page WITHOUT the cache by using cmd+shift+r on mac.
