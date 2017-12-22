@@ -14,7 +14,7 @@ const dbName = 'cado';
 router.get('/', function(req, res, next) {
   MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
-    res.send("Connected successfully to server");
+    res.render("users", {msg: "Connected successfully to server"});
   
     const db = client.db(dbName);
   
