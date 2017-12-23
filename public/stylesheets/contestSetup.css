@@ -26,8 +26,9 @@
 }
 
 .header h1 {
-    margin-left: 20px;
-    margin-right: 20px; 
+    margin-left: 1em;
+    margin-right: 1em; 
+    text-align: center;
 }
 
 .form {
