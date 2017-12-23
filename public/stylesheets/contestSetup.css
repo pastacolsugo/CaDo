@@ -10,7 +10,7 @@
     /*                    1  2  3    4  5  6   */
 
     font-family: "DejaVuMono";
-    background-color: #b4e800;
+    background-color: sec-b-0;
     margin-left: 0;
     margin-right: 0;
 }
@@ -22,7 +22,7 @@
     grid-row-end: 2;
 
     /*background-color: #f37000*/
-    background-color: #009b7d
+    background-color: sec-b-0;
 }
 
 .header h1 {
@@ -35,7 +35,7 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: #3ed100;
+    background-color: pri-0;
     padding-left: 1.5em;
     padding-top: 1.5em;
     padding-bottom: 30px;
@@ -50,4 +50,5 @@
     margin-bottom: 1em;
     border: 1px solid #ccc;
     width: calc(100% - 2em);
+    text-transform: capitalize;
 }
