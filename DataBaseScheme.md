@@ -42,7 +42,8 @@ This collection contain the contest's data. It's a `Contest` object.
     "testcases": [], //array of Testcase, mandatory only if has_subtask=false
     "score": 100,//mandatory only if has_subtask=false, the amount of point is then equally divided between testcases
     "subtask":[],//array of Subtask, mandatory only if has_subtask=true
-    "statement": "base64-encoded PDF"
+    "statement": "base64-encoded PDF",
+    "grader": "the source code used to evaluate the answers"
 }
 ```
 
