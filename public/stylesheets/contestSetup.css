@@ -35,24 +35,19 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-
     background-color: #3ed100;
-
-    padding-left: 15px;
-    padding-top: 15px;
+    padding-left: 1.5em;
+    padding-top: 1.5em;
     padding-bottom: 30px;
 }
 
 .form .inputField {
     font-family: "DejaVuMono";
-    font-size: 20pt;
-    padding: 5px; 
-    border-right: 50px;
-
-    margin-top: 5px;
-    margin-bottom: 10px;
-
+    font-size: 1.5em;
+    padding: .5em; 
+    border-right: 5em;
+    margin-top: .5em;
+    margin-bottom: 1em;
     border: 1px solid #ccc;
-
-    /*width: 100%;*/
+    width: calc(100% - 2em);
 }
