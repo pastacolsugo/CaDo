@@ -8,7 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/jquery', function(req, res, next){
-    res.sendFile(path.join(__dirname, '/../', 'public/jQuery.js'));
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/jQuery.js'));
+});
+
+router.get('/font/dejavumono', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono.ttf'));
 });
 
 module.exports = router;

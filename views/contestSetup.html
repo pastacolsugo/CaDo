@@ -2,37 +2,38 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+    <title>Contest Setup</title>
+    <!-- CIAO DA CASA SELVA -->
 
-  <!-- CIAO DA CASA SELVA -->
-
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-</head>
-
-<body>
-  <!-- <script src="js/scripts.js"></script> -->
-  <script type="text/javascript">
+    <link rel="stylesheet" href="/stylesheets/contestSetup.css">
+    <script type="text/javascript">
         var getFormData = function () {
             var d = document.getElementById("d").value;
 
             console.log (d);
         }
-  </script>
+    </script>
+</head>
 
-  <form id="form" action="" method="post" enctype="multipart/form-data">
-      <input id="a" type="text" name="field1">
-      <br>
-      <input id="b" type="text" name="field2">
-      <br>
-      <input id="c" type="text" name="field3">
-      <br>
-      <input id="d" type="file" name="config">
-      <input id="e" type="submit" name="submitButton" value="Submit" onclick="getFormData()">
-  </form>
+<body class="container">
+    <div class="header">
+       <h1>CaDo Contest Setup Page</h1>
+    </div>
+
+    <div class="form">
+        <form id="form" action="" method="post" enctype="multipart/form-data">
+            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="nome gara" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            <br>
+            <input id="b" type="text" name="field2">
+            <br>
+            <input id="c" type="text" name="field3">
+            <br>
+            <input id="d" type="file" name="config">
+            <input id="e" type="submit" name="submitButton" value="Submit" onclick="getFormData()">
+        </form>
+    </div>
 
 </body>
 </html>
