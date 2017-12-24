@@ -18,4 +18,5 @@ Here's described how the user has to set up the contest
         * An option to cache the output of the grading algorithm
         * The input to pass to the submission
 4. The admin then submits the form and the same form described in #3 is presented until he has entered all the task details.
-5. The user is redirected to the admin console.
+5. The admin is then asked to enter the number of users to generate. After submitting the form, he's given the option to [export the contest](https://github.com/eutampieri/CaDo/issues/13) and to [download a PDF containing all usernames and password for the teams](https://github.com/eutampieri/CaDo/issues/2)
+6. The user is redirected to the admin console.
