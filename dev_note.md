@@ -36,6 +36,6 @@ To install the necessary packages you'll have to run
 `npm install`
 in the proj directory.
 
-Then, run typing `npn start`
+Then, run typing `npm start`
 
 While developing on Chrome locally, you can Refresh the page WITHOUT the cache by using cmd+shift+r on mac.

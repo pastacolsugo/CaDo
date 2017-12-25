@@ -9,10 +9,22 @@
 
     <link rel="stylesheet" href="/stylesheets/contestSetup.css">
     <script type="text/javascript">
+        // function to fetch the form content and organizing it into a pretty object
         var getFormData = function () {
-            var d = document.getElementById("d").value;
+            // retrieving an array containing each form element
+            var formElements = document.getElementById('form').elements;
 
-            console.log (d);
+            // empty object initialization
+            var contest = {};
+
+            // getting each value by index
+            // I don't like this approach, I would rather use a key-string, like the input "name" - ugo
+            contest.name = formElements[0].value;
+            contest.teamNumber = formElements[1].value;
+            contest.tutor = formElements[2].value;
+
+            // logging data to the console, just for test purposes
+            console.log(contest);
         }
     </script>
 </head>
@@ -23,26 +35,28 @@
     </div>
 
     <div class="form">
-        <form id="form" action="" method="post" enctype="multipart/form-data">
-            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="nome gara" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+        <form id="form" action="null" method="post" enctype="multipart/form-data">
+            <input type="text" id="nomeGara" class="textInput" name="nomeGara" placeholder="nome gara" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="numero squadre" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            <input type="number" id="numeroSquadre" class="numberInput" name="nomeGara" placeholder="numero squadre" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="tutor" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            <input type="text" id="tutor" class="textInput" name="nomeGara" placeholder="tutor" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            <input type="text" id="loremIpsum" class="textInput" name="nomeGara" placeholder="lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="text" id="nomeGara" class="inputField" name="nomeGara" placeholder="fatti non foste per viver come bruti, ma per seguir virtute e canoscenza." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            <input type="text" id="dante" class="textInput" name="nomeGara" placeholder="fatti non foste per viver come bruti, ma per seguir virtute e canoscenza." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
             <input class="fileUpload" type="file" name="config">
-            <input id="e" type="submit" name="submitButton" value="Submit" onclick="getFormData()">
         </form>
+        <button type="button" id="pulzante" onclick="getFormData()">pulzante</button>
     </div>
-
+    <script type="text/javascript">
+        // this script automatically executes when the page finishes loading
+    </script>  
 </body>
 </html>
