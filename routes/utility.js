@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var fs = require("fs");
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,16 +16,41 @@ router.get('/font/dejavumono', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono.ttf'));
 });
 
+// retrieve contestSetup CSS and replace each theme color key (pri, sec-a, sec-b)
+// with it's corresponding RGB color for the choosen theme
 router.get('/styles/contestSetup', function (req, res, next) {
     res.header("Content-Type", "text/css");
-    var css = fs.readFileSync(path.join(__dirname, '/../', 'public/stylesheets/contestSetup.css'), "utf8");
-    var theme = JSON.parse(fs.readFileSync(path.join(__dirname, '/../', 'public/stylesheets/styles/' + req.query.theme + '.json'), "utf8"));
+
+    var cssFilePath = path.join(__dirname, '/../', 'public/stylesheets/contestSetup.css');
+
+    var css = fs.readFileSync(cssFilePath, "utf8");
+
+    // join theme path, the choosen theme is in req.query.theme
+    var themePath = path.join(__dirname, '/../', 'public/stylesheets/styles/' + req.query.theme + '.json');
+
+    // reading the theme file, containing each RGB color representation
+    var themeFile = fs.readFileSync(themePath, "utf8");
+
+    // parsing the file (string) into a Javascript Object with JSON.parse
+    var theme = JSON.parse(themeFile);
+
+    // each color is specified, in the css file, as
+    // one of these keys, score, number [0-4]
+    // E.g. : sec-a-3, or pri-0
     var keys = ["pri", "sec-a", "sec-b"];
-    for (var i = 0; i < 3; i++){
-        for (var j = 0; j < 5;j++){
-            css = css.replace(new RegExp(keys[i] + '-' + j.toString(), 'g'), theme[5 * i + j]);
+
+    // iterate each key
+    for (var i=0; i<keys.length; i++){
+        // for each key iterate over the 5 tonalities
+        for (var j=0; j<5; j++){
+            // create a new Regex for that color
+            var colorPlaceholderRegex = new RegExp(keys[i] + '-' + j.toString())
+
+            // replace each 
+            css = css.replace(colorPlaceholderRegex, theme[5 * i + j]);
         }
     }
+
     res.send(css);
 });
 
