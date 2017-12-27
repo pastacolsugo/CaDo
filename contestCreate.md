@@ -17,6 +17,7 @@ Each receives a page with minimal info and a login form. The admin can login usi
 ###1.1 _What to do if the admin forgets the password?_
 
 1. Have a "hardcoded" master password. The code will have the **master-password HASH** hardcoded and it will check the `hash(password)` against this hash.
+
 2. Reset password form, but everyone in the room will be able to change the password.
 
 ##2. The DB is empty
@@ -160,5 +161,3 @@ If the operation is unsuccessful, an error message will be displayed and more de
 
 
 
-
---
