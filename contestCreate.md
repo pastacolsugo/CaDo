@@ -11,17 +11,17 @@ When the app is started, there are two cases:
 
 ---
 
-##1. The DB already has admin credentials
+## 1. The DB already has admin credentials
 
 Each receives a page with minimal info and a login form. The admin can login using the stored credentials and setup the contest.
 
 
-####1.1 _What to do if the admin forgets the password?_
+#### 1.1 _What to do if the admin forgets the password?_
 
 1. Have a "hardcoded" master password. The code will have the **master-password HASH** hardcoded and it will check the password against this hash.
 2. Reset password form, but everyone in the room will be able to change the password.
 
-##2. The DB is empty
+## 2. The DB is empty
 
 Each connection but `localhost` will be redirected to an information page.
 The admin can connect to the server via `localhost` and create it's admin credentials (username and password).
@@ -29,20 +29,20 @@ Once he has the credentials he can either proceed to setup the contest from the 
 
 ---
 
-##3. Contest Setup
+## 3. Contest Setup
 
 The admin can connect to `cado-URL/contestSetup` and will receive a login form.
 
 Once the admin has entered the it's previously created credentials, he will be shown the setup page.
 
-###3.1 Setup Page
+### 3.1 Setup Page
 
 This page is divided into sections, that gets **dynamically displayed** upon completion of the previous, or with a button.
 
-####3.1.1 Config file
+#### 3.1.1 Config file
 At the top of the page there will be a button allowing the admin to upload a contest configuration file (JSON). Once it has been uploaded the pages directly shows every section, pre-filled with the data from the configuration file.
 
-####3.1.2 New configuration
+#### 3.1.2 New configuration
 To create a new configuration, fill in each field.
 
 * Contest Name
@@ -50,11 +50,11 @@ To create a new configuration, fill in each field.
 	* (I believe date pickers are not the right choice, once the contest has been set up, in the admin page we can have a START button or the possibility to set a time) 
 * Number of problems [ _Np_ ]
 
-###3.2 Problem Statement Page
+### 3.2 Problem Statement Page
 
 The page gets updated and _Np_ identical problem upload section will be shown.
 
-####3.2.1 Problem Upload Section
+#### 3.2.1 Problem Upload Section
 Each section will have:
 
 * Text input field for the problem ID (E.g. _noccioline_, _magneti_, ...)
@@ -64,7 +64,7 @@ Each section will have:
 	* Testcase mode
 	* Subtask mode
 
-####3.2.2 Testcase mode
+#### 3.2.2 Testcase mode
 
 * Number of testcase [ _Nt_ ]
 * _Nt_ sections with:
@@ -76,7 +76,7 @@ Each section will have:
 	* Tag _(E.g. set1, N<10e3, pierpaolo, ...)_ [ optional ]
 	* AC Solution Source [ optional ]
 
-####3.2.3 Subtask mode
+#### 3.2.3 Subtask mode
 **Note: when enabling-disabling** `Subtask mode` **the content of the testcase section MUST remain in the form.**
 
 Will be the same of **Testcase mode** but will add a selection for:
@@ -95,7 +95,7 @@ The color, if present, will be used to color-code the testcase section in the co
 
 ---
 
-###3.3 Team Setup
+### 3.3 Team Setup
 This section can be automatically filled. Each team could set his own team name and component list once has logged in. Login usernames will be randomly picked from a lookup table of names, password could be generated similarly, maybe by truncating and concatenating multiple words.
 
 * Number of teams [ _Nt_ ]
