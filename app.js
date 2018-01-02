@@ -42,6 +42,13 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+// catch 403 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Forbidden');
+    err.status = 403;
+    next(err);
+});
+
 // error handler
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
@@ -53,7 +60,18 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
+global.connReady = { "global": false, "local": false };//Flags that represent wether or not to accept the connections 
 //Lines to implement DB connection
 //
+MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    global.db = client.db(dbName);
+
+    db.collection('users').find({ admin: true }).toArray().then(function (r) {
+        if (r.length == 0) {
+            console.log("Instance isn't configured");
+        }
+    });
+});
 
 module.exports = app;
