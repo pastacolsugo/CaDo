@@ -12,16 +12,16 @@
         // function to fetch the form content and organizing it into a pretty object
         var getFormData = function () {
             // retrieving an array containing each form element
-            var formElements = document.getElementById('form').elements;
+            var form = document.getElementById('form');
 
             // empty object initialization
             var contest = {};
 
             // getting each value by index
             // I don't like this approach, I would rather use a key-string, like the input "name" - ugo
-            contest.name = formElements[0].value;
-            contest.teamNumber = formElements[1].value;
-            contest.tutor = formElements[2].value;
+            contest.name = form.getElementById('contestName');
+            contest.teamNumber = form.getElementById('teamNumber');
+            contest.tutor = form.getElementById('tutor');
 
             // logging data to the console, just for test purposes
             console.log(contest);
@@ -36,9 +36,9 @@
 
     <div class="form">
         <form id="form" action="null" method="post" enctype="multipart/form-data">
-            <input type="text" id="nomeGara" class="textInput" name="nomeGara" placeholder="nome gara" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <input type="text" id="contestName" class="textInput" name="nomeGara" placeholder="nome gara" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="number" id="numeroSquadre" class="numberInput" name="nomeGara" placeholder="numero squadre" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <input type="number" id="teamNumber" class="numberInput" name="nomeGara" placeholder="numero squadre" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
             <input type="text" id="tutor" class="textInput" name="nomeGara" placeholder="tutor" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
