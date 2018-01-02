@@ -8,7 +8,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-    console.log(req);
+    var body = req.body;
+
+    console.log('Received POST request @ localhost:3000/:',
+        '\nusername = ' + body['username'],
+        '\npassword = ' + body['password']);
+
+    res.status(200);
+    res.end();
 });
 
 module.exports = router;
