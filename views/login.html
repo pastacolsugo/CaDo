@@ -1,13 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login</title>
-    <style rel="stylesheet" href="/stylesheets/contestSetup.css"></style>
-    <script src="/../scripts/login.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/generalStylesheet.css">
+    <title>CaDo Login</title>
+    <script>
+        function chkFormDta(){
+            if(document.getElementById("username").value==""||document.getElementById("password").value==""){
+                document.getElementById("login").disabled=true;
+                document.getElementById("login").classList.remove("validBtn");
+            }
+            else{
+                document.getElementById("login").disabled=false;
+                document.getElementById("login").classList.add("validBtn");
+            }
+        }
+    </script>
 </head>
-<body class="container">
-    <h1>Login</h1>
-    <form class="form">
-        <input id="username" placeholder="username">
-        <input id="password" placeholder="password">
-    </form>
-    <button onclick="login()">Login</button>
+<body>
+    <div id="mainPart" align="center" >
+        <div class="formTitle">
+            <h1>CaDo</h1>
+            <h6>CMS</h6>
+        </div>
+        <div id="formPart">
+            <form class="form">
+                <input onkeyup="chkFormDta()" id="username" type="text" placeholder="username">
+                <input onkeyup="chkFormDta()" id="password" type="password" placeholder="password">
+                <button onclick="login()" id="login" type = "submit" disabled>login</button>
+            </form>
+        </div>
+    </div>
 </body>
+</html>
