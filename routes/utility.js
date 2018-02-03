@@ -28,7 +28,7 @@ router.get('/font/dejavumono-Oblique', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono-Oblique.ttf'));
 });
 
-router.get('/generalStyleSheet', function(req, res, next){
+router.get('/generalStyleSheet.css', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/generalStyleSheet.css'));
 });
 

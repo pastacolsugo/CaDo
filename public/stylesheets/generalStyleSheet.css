@@ -72,6 +72,8 @@ div.formTitle h1,h6{
 
 .form input{
     padding: 0.25em;
+    border-radius: 0;
+    border:1px solid #c0c0c0;
 }
 
 .form button{
@@ -80,6 +82,7 @@ div.formTitle h1,h6{
     background-color: #c0c0c0;
     padding: .5em;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .validBtn{
