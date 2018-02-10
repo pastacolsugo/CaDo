@@ -155,13 +155,13 @@
     display: none;
 }
 
-.openProblem {
+.openProblem, .problemBox:hover {
     margin-right: 0em;
 }
 
 .greenScore {
     /*background: green;*/
-    background: rgba(0, 255, 0, 0.7);
+    background: #00ff00b2;
 }
 
 .orangeScore {
