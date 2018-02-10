@@ -39,4 +39,13 @@ router.get('/master.css', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/master.css'));
 });
 
+//to be changed
+router.get('/theme.css', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/themes/default.css'));
+});
+
+router.get('/login.css', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/login.css'));
+});
+
 module.exports = router;

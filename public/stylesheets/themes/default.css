@@ -1,0 +1,10 @@
+:root{
+    /*Colors*/
+    --login-bg: #f90;
+    --login-form-bg: #fff;
+    --login-field-border: #c0c0c0;
+    --login-button-text: #fff;
+    --login-button-bg:#c0c0c0;
+    --login-button-valid: #FF9900;
+    /*other colours has to be inserted here*/
+}
