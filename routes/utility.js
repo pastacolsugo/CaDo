@@ -16,7 +16,8 @@ router.get('/font/dejavumono', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono.ttf'));
 });
 
-router.get('/alert', function(req, res, next){
+router.get('/alert', function (req, res, next) {
+    res.type('.svg');
     res.sendFile(path.join(__dirname, '/../', '/public/alert.svg'));
 })
 
