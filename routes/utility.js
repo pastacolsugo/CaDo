@@ -16,6 +16,13 @@ router.get('/font/dejavumono', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono.ttf'));
 });
 
+router.get('/alert', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', '/public/alert.ico'));
+})
+
+router.get('/profilePic', function(req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', '/public/unnamed.ico'));
+})
 router.get('/font/dejavumono-bold', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono-Bold.ttf'));
 });
