@@ -33,14 +33,18 @@
     background-color: #0437ab;
 }
 
-.header h1 {
+.title {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
+}
 
-    margin-left: 20px;
-    margin-right: 20px; 
+div.title h1 {
+    margin-left: 0.9em;
+    margin-right: 1em;
+    margin-top: 0.65em;
+    margin-bottom: 0.65em;
     color: white;
 }
 
@@ -109,7 +113,8 @@
     grid-row-start: 1;
     grid-row-end: 2;
 
-    font-weight: 800;  
+    font-weight: 800;
+    /*color: black;*/
 }
 
 .problemScore {
@@ -166,7 +171,7 @@
 
 .greenScore {
     /*background: green;*/
-    background: rgba(0, 255, 0, 0.7);
+    background: rgba(0, 255, 0, 0.75);
 }
 
 .orangeScore {
@@ -176,7 +181,8 @@
 
 .redScore {
     /*background: red;*/
-    background: rgba(255, 0, 0, 0.7);
+    background: rgba(255, 40, 0, 0.85);
+    color: white;
 }
 
 .content {
