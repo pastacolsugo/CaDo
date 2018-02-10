@@ -3,14 +3,8 @@
     grid-template-rows: 15% auto;
     grid-template-columns: minmax(10em, 14em) minmax(50em, 3000em);
     /*                    1   2     3   */
-
-    font-family: "DejaVuMono";
-    /*background-color: #b4e800;*/
-    /*background-color: #abc5ff;*/
-    background-color: white;
+    background-color: var(--contest-bg);
     margin: 0;
-
-    font-size: 12pt;
 }
 
 .header {
@@ -23,9 +17,7 @@
     grid-template-rows: 100%;
     grid-template-columns: auto 4% 10%;
 
-    /*background-color: #f37000*/
-    /*background-color: #009b7d*/
-    background-color: #0437ab;
+    background-color: var(--contest-header-bg);
 }
 
 .header h1 {
@@ -34,9 +26,9 @@
     grid-row-start: 1;
     grid-row-end: 2;
 
-    margin-left: 20px;
-    margin-right: 20px; 
-    color: white;
+    margin-left: 0.5em;
+    margin-right: 0.5em; 
+    color: var(--contest-header);
 }
 
 .sidebar {
@@ -47,9 +39,8 @@
 
     padding-bottom: 100%;
 
-    color: white;
     /*background-color: #6795ff;*/
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--contest-sidebar-color);
 }
 
 .header .userImg {
@@ -77,7 +68,7 @@
 }
 
 .timer {
-    color: white;
+    color: var(--contest-timer);
     font-size: 22pt;
 
     margin-left: 1em;
@@ -98,13 +89,23 @@
     padding: 0.6em;
 }
 
-.problemTitle {
+h2.problemTitle {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
+    color: var(--contest-problem-title-heading);
+    font-weight: 800;
+    margin-top: 0;
+}
 
-    font-weight: 800;  
+div.problemTitle {
+    color: var(--contest-problem-list-title);
+    font-weight: 800;
+}
+
+.score{
+    color: var(--contest-problem-list-score)
 }
 
 .problemScore {
@@ -161,24 +162,20 @@
 
 .greenScore {
     /*background: green;*/
-    background: #00ff00b2;
+    background-color: var(--contest-problem-fullScore);
 }
 
 .orangeScore {
     /*background: orange;*/
-    background: rgba(255, 180, 0, 1);
+    background-color: var(--contest-problem-mediumScore);
 }
 
 .redScore {
     /*background: red;*/
-    background: rgba(255, 0, 0, 0.7);
+    background-color: var(--contest-problem-lowScore);
 }
 
 .content {
     padding: 2em;
     padding-right: 3em;
-}
-
-.problemTitle {
-    margin-top: 0;
 }

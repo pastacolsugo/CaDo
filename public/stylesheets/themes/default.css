@@ -11,7 +11,14 @@
 
     /* CONTEST_PAGE */
     /* colors */
-    
-    
-    
+    --contest-bg: #fff;
+    --contest-header-bg: #0437ab;
+    --contest-header: #fff;
+    --contest-timer: #fff;
+    --contest-sidebar-color: #4c4c4c;
+    --contest-problem-list-title: #fff;
+    --contest-problem-list-score: #fff;
+    --contest-problem-lowScore: #bd3030;
+    --contest-problem-mediumScore: #E69E32;
+    --contest-problem-fullScore: #5ecc00;
 }

@@ -32,7 +32,9 @@
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-family:"DejaVuMono", monospace;
     padding:0.5em;
-    /*background-color: #ffe0b1;*/
+}
+
+body{
+    font-family: "DejaVuMono", monospace;
 }
