@@ -160,6 +160,7 @@ div.problemTitle {
 .openProblem, .problemBox:hover {
     margin-right: 0em;
     border-radius: 0!important;
+    transition: ease-in .1s;
 }
 
 .greenScore {
