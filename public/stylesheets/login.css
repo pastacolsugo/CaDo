@@ -62,3 +62,8 @@ div.formTitle h1{
     background-color: var(--login-button-valid) !important;
     cursor:pointer;
 }
+
+.validBtn:hover{
+    transition: ease-in-out .2s;
+    background-color: var(--login-button-valid-hover)!important;
+}

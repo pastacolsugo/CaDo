@@ -87,6 +87,7 @@
 
     /*border: solid grey 1px;*/
     padding: 0.6em;
+    border-radius: 0 0.2em 0.2em 0;
 }
 
 h2.problemTitle {
@@ -158,6 +159,7 @@ div.problemTitle {
 
 .openProblem, .problemBox:hover {
     margin-right: 0em;
+    border-radius: 0!important;
 }
 
 .greenScore {
