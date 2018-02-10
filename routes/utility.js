@@ -23,5 +23,20 @@ router.get('/alert', function(req, res, next){
 router.get('/profilePic', function(req, res, next) {
     res.sendFile(path.join(__dirname, '/../', '/public/unnamed.ico'));
 })
+router.get('/font/dejavumono-bold', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono-Bold.ttf'));
+});
+
+router.get('/font/dejavumono-boldOblique', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono-BoldOblique.ttf'));
+});
+
+router.get('/font/dejavumono-Oblique', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono-Oblique.ttf'));
+});
+
+router.get('/generalStyleSheet.css', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/generalStyleSheet.css'));
+});
 
 module.exports = router;

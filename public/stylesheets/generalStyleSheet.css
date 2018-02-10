@@ -1,0 +1,91 @@
+@font-face {
+    font-family: DejaVuMono;
+    src: url(/utility/font/dejavumono);
+    font-weight:normal;
+    font-style:normal}
+
+@font-face {
+    font-family: DejaVuMono;
+    src: url(/utility/font/dejavumono-bold);
+    font-weight:bold;
+    font-style:normal}
+
+@font-face {
+    font-family: DejaVuMono;
+    src: url(/utility/font/dejavumono-boldOblique);
+    font-weight:bold;
+    font-style:italic}
+
+@font-face {
+    font-family: DejaVuMono;
+    src: url(/utility/font/dejavumono-Oblique);
+    font-weight:normal;
+    font-style:italic}
+
+body {
+    background-color: #f90;
+    font-family:"DejaVuMono", monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:"DejaVuMono", monospace;
+    padding:0.5em;
+    background-color: #ffe0b1;
+}
+div.formTitle{
+    margin: 0;
+    padding-top:1.5em;
+    padding-bottom:0.5em;
+    color: white;
+    letter-spacing:2px;
+}
+div.formTitle h6{
+    font-size: 16pt;
+    margin:inherit;
+    padding:0;
+    letter-spacing:inherit;
+}
+div.formTitle h1{
+    margin:inherit;
+    font-size: 38pt;
+    padding:0;
+    letter-spacing:inherit;
+}
+div.formTitle h1,h6{
+    background-color: #ffffff00 !important;
+}
+
+.form{
+    margin: 0;
+    padding: 1em;
+    height: auto;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.form input, .form button{
+    display: block;
+    margin: 0.5em;
+    font-size: 2em;
+    font-family: "DejaVuMono", monospace;
+}
+
+.form input{
+    padding: 0.25em;
+    border-radius: 0;
+    border:1px solid #c0c0c0;
+}
+
+.form button{
+    border:none;
+    color:white;
+    background-color: #c0c0c0;
+    padding: .5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.validBtn{
+    background-color: #FF9900!important;
+    cursor:pointer;
+}
