@@ -17,7 +17,7 @@ router.get('/font/dejavumono', function(req, res, next){
 });
 
 router.get('/alert', function(req, res, next){
-    res.sendFile(path.join(__dirname, '/../', '/public/alert.ico'));
+    res.sendFile(path.join(__dirname, '/../', '/public/alert.svg'));
 })
 
 router.get('/profilePic', function(req, res, next) {
