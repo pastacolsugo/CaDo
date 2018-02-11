@@ -168,7 +168,7 @@ div.problemTitle {
     height: 100%;
 }
 .problemBox.alert .alert-icon::before, .problemBox.alert .alert-icon{
-    display: inline-block;
+    display: block;
 }
 
 .hide {
