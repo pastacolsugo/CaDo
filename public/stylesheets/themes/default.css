@@ -1,19 +1,19 @@
 :root{
     /* LOGIN */
     /* colors */
-    --login-bg: #f90;
+    --login-bg: #0D6C7D;
     --login-form-bg: #fff;
     --login-field-border: #c0c0c0;
     --login-button-text: #fff;
     --login-button-bg:#c0c0c0;
-    --login-button-valid: #FF9900;
-    --login-button-valid-hover: #e68a00; 
+    --login-button-valid: #0C7367;
+    --login-button-valid-hover: #0F4266; 
     /*other colours has to be inserted here*/
 
     /* CONTEST_PAGE */
     /* colors */
     --contest-bg: #fff;
-    --contest-header-bg: #0437ab;
+    --contest-header-bg: #0D6C7D;
     --contest-header: #fff;
     --contest-timer: #fff;
     --contest-sidebar-color: #4c4c4c;

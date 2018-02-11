@@ -5,6 +5,7 @@
     /*                    1   2     3   */
     background-color: var(--contest-bg);
     margin: 0;
+    max-height: 100vh;
 }
 
 .header {
@@ -48,11 +49,10 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-
-    margin-top: 1em;
-    margin-right: 1em;
-
+    margin: auto;
     color: white;
+    max-height: 5em;
+    max-width: 100%;
 }
 
 .header .userName {
@@ -60,11 +60,15 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-
-    margin-top: 2em;
-    margin-left: 0.5em;
-
+    margin: auto;
     color: white;
+    padding: 0 1em;
+    max-width: calc(100% - 2em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.header .userName:hover{
+    word-wrap: break-word;
 }
 
 .timer {
@@ -181,4 +185,6 @@ div.problemTitle {
 .content {
     padding: 2em;
     padding-right: 3em;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
