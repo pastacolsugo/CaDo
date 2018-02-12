@@ -107,7 +107,7 @@
                 alert.classList.add("alert-icon");
                 problemBox.appendChild(alert);
             }
-            // This function has to be replaced with WebSocket to update alerts in real time when communication is published
+            // This function has to be replaced with a WebSockets handler to update alerts in real time when communication is published
 
             getUrlPromise('/api/alerts').then(function(res){
                 var alerts=JSON.parse(res);
@@ -116,11 +116,11 @@
                         document.getElementById(alerts[i].task).classList.add("alert");
                     }
                 }
-            // Add function to communicate with WebSocket which handles updated after each evalutions
             });
+            // Add function to communicate with WebSockets which handles updated after each evaluation
 
         });
     </script>
-    <script src="/utility/lipsum.js" type="text/javascript"></script><!--This is because I was tired of looking at a really long HTML and because it's now really easy to put some filler text (just include the script and an element with class="lipsum" and you're done)-->
+    <script src="/utility/lipsum.js" type="text/javascript"></script>
 </body>
 </html>
