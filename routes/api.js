@@ -7,6 +7,7 @@ router.get('/contest', function (req, res, next) {
     //this function will serve user personalized contest details used to populate the main page
     res.type('.json');
     res.send(JSON.stringify({
+        "name": "Contest di prova",
         "end_date": new Date(new Date().getTime() + 3 * 3600000),
         "tasks": [
             {
@@ -51,7 +52,7 @@ router.get('/contest', function (req, res, next) {
 router.get('/alerts', function (req, res, next) {
     res.type('.json');
     res.send(JSON.stringify([
-        "canoa"
+        { "task": "canoa", "id": "alert-9083thopnxd" }
     ]));
 });
 

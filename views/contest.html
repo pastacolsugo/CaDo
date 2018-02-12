@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!--Added the viewport meta tag to view the site properly on mobile-->
-    <title>Contest Setup</title>
+    <title id="contest-title">Contest Setup</title>
     <script type="text/javascript">
     function padding(n){
         return (n<10?'0':'')+n.toString();
@@ -30,6 +30,19 @@
         res=(score<20? "low":(score==100?"full":"medium"))+res;
         return res;
     }
+    var currentState={
+        "selected": null,
+        "taskStatus":{},
+        "dismissedAlerts":[]
+    }
+    function select(id){
+        if(currentState.selected!==null){
+            document.getElementById(currentState.selected).classList.remove("openProblem");
+        }
+        currentState.selected=id;
+        document.getElementById(currentState.selected).classList.add("openProblem");
+    }
+    var contest=null;
     </script>
     <link rel="stylesheet" href="/stylesheets/master.css">
     <link rel="stylesheet" href="/stylesheets/contest.css">
@@ -37,7 +50,7 @@
 
 <body class="container">
     <div class="header">
-        <h1>CaDo Contest Setup Page</h1>
+        <h1 id="contest-heading">CaDo Contest Setup Page</h1>
         <img class="userImg" alt=":)" src="/utility/profilePic">
         <div class="userName">pastacolsugo</div>
     </div>
@@ -53,13 +66,18 @@
     </div>
     <script type="text/javascript">
         getUrlPromise("/api/contest").then(function(response){
-            var contest=JSON.parse(response);
+            contest=JSON.parse(response);
+            document.getElementById("contest-heading").innerHTML=contest.name;
+            document.getElementById("contest-title").innerHTML=contest.name;
             var endDate=new Date(contest.end_date);
             setInterval(function(){
                 document.getElementById("timer").innerHTML=timeDelta(endDate);
             }, 1000);
             var sidebar=document.getElementById("sidebar");
             for(var i=0;i<contest.tasks.length; i++){
+                //Questa linea potrebbe essere molto inutile
+                currentState.taskStatus[contest.tasks[i].name]=scoreToClassName(contest.tasks[i].score);
+                //-------------
                 var problemBox=document.createElement("div");
                 problemBox.id=contest.tasks[i].name;
                 problemBox.classList.add("problemBox");
@@ -81,6 +99,7 @@
                 var submissions=document.createElement("a");
                 submissions.classList.add("link");
                 submissions.classList.add("submissionLink");
+                submissions.onclick=(function(){var a=contest.tasks[i].name; return function(){select(a);};})();
                 submissions.innerHTML="Sottoposizioni";
                 problemBox.appendChild(submissions);
                 sidebar.appendChild(problemBox);
@@ -91,7 +110,9 @@
             getUrlPromise('/api/alerts').then(function(res){
                 var alerts=JSON.parse(res);
                 for(var i=0;i<alerts.length;i++){
-                    document.getElementById(alerts[i]).classList.add("alert");
+                    if(currentState.dismissedAlerts.indexOf(alerts[i].id)===-1){
+                        document.getElementById(alerts[i].task).classList.add("alert");
+                    }
                 }
             });
         });

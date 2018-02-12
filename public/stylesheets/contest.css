@@ -122,6 +122,8 @@ div.problemTitle {
 }
 
 .link {
+    text-decoration: underline;
+    cursor: pointer;
     color: rgb(50, 50, 50);
     /*text-decoration: none !important;*/
 }
