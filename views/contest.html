@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!--Added the viewport meta tag to view the site properly on mobile-->
-    <title>Contest Setup</title>
-    <!-- CIAO DA CASA SELVA -->
+    <title>Cado Contest</title>
 
     <link rel="stylesheet" href="/stylesheets/master.css">
     <link rel="stylesheet" href="/stylesheets/contest.css">
@@ -13,7 +12,7 @@
 
 <body class="container">
     <div class="header">
-        <h1>CaDo Contest Setup Page</h1>
+        <h1>CaDo Contest Page</h1>
         <img class="userImg" alt=":)" src="/utility/profilePic">
         <div class="userName">pastacolsugo</div>
     </div>
@@ -23,9 +22,9 @@
             <p>-1:78:92</p>
         </div>
 
-        <div class="problemBox greenScore" id="problem1">
+        <div class="problemBox greenScore" id="problem1" onclick="openTheProblem(this.id)">
             <div class="problemTitle" style="inline">Noccioline</div>
-            <div class="score" style="inline">100</div>
+            <div class="score">100</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
@@ -81,5 +80,6 @@
         // this script automatically executes when the page finishes loading
     </script>
     <script src="/utility/lipsum.js" type="text/javascript"></script><!--This is because I was tired of looking at a really long HTML and because it's now really easy to put some filler text (just include the script and an element with class="lipsum" and you're done)-->
+    <script src="/utility/contest.js" type="text/javascript"></script>
 </body>
 </html>
