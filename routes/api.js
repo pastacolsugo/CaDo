@@ -80,4 +80,29 @@ router.get('/task', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))
 });
 
+router.get('/submissions', function (req, res, next) {
+    //req.query.task
+    res.type('.json');
+    res.send(JSON.stringify([
+        {
+            "id":"lskjfhsldfuhla239875462398576jsdkfkah",
+            "date":new Date(new Date().getTime() - 60000),
+            "status":"evaluated",
+            "score":90
+        },
+                {
+            "id":"lskjfhsldfsdkjhf3375462398576jsdkfkah",
+            "date":new Date(new Date().getTime() - 6000),
+            "status":"evaluating",
+            "score":null
+        },
+        {
+            "id":"lskfjskhdldfuhla239875462398576jsdkfkah",
+            "date":new Date(new Date().getTime() - 1000),
+            "status":"compiling",
+            "score":null
+        }
+    ]));
+});
+
 module.exports = router;

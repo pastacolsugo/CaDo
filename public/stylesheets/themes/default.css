@@ -22,4 +22,6 @@
     --contest-problem-lowScore: #bd3030;
     --contest-problem-mediumScore: #E69E32;
     --contest-problem-fullScore: #5ecc00;
+    --contest-problem-submission-evaluating-text:#000;
+    --contest-problem-submission-evaluating-bg:#58b8ff;
 }

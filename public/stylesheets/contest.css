@@ -204,3 +204,14 @@ div.problemTitle {
     grid-row-start: 2;
     grid-row-end: 3;
 }
+
+.submissionScore.lowScore, .submissionScore.mediumScore, .submissionScore.highScore{
+    color: var(--contest-problem-list-score);
+    text-align: center;
+}
+
+.submissionScore.evaluating{
+    color: var(--contest-problem-submission-evaluating-text);
+    background-color: var(--contest-problem-submission-evaluating-bg);
+    text-align: center;
+}

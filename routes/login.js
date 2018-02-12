@@ -4,7 +4,7 @@ var path = require('path');
 
 function login(user, pass) {
     //if authentication isn't successful, then return false. Otherwise, return true
-    return true;
+    return false;
 }
 
 router.get('/', function(req, res, next) {
@@ -15,9 +15,9 @@ router.post('/', function(req, res, next){
         res.redirect('/');
     }
     else {
-        res.redirect('login');
+        res.redirect('login#' + encodeURIComponent("Username o password errati."));
+        // and send an error message
     }
 });
-
 
 module.exports = router;

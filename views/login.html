@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="utility/master.css"><!--how to call css from backend?-->
-    <link rel="stylesheet" href="utility/login.css"><!--how to call css from backend?-->
+    <link rel="stylesheet" href="utility/master.css">
+    <link rel="stylesheet" href="utility/login.css">
+    <link rel="stylesheet" href="/utility/notyf.css">
+    <script src="/utility/notyf.js"></script>
     <title>CaDo Login</title>
-    <script>
-        function chkFormDta(){
-            if(document.getElementById("username").value==""||document.getElementById("password").value==""){
-                document.getElementById("login").disabled=true;
-                document.getElementById("login").classList.remove("validBtn");
-            }
-            else{
-                document.getElementById("login").disabled=false;
-                document.getElementById("login").classList.add("validBtn");
-            }
-        }
-    </script>
 </head>
 <body>
     <div id="mainPart" align="center" >
@@ -29,9 +19,10 @@
             <form class="form" method="POST" action="login">
                 <input onkeyup="chkFormDta()" name="username" id="username" type="text" placeholder="username">
                 <input onkeyup="chkFormDta()" name="password" id="password" type="password" placeholder="password">
-                <button onclick="login()" id="login" type = "submit" disabled>login</button>
+                <button id="login" type = "submit" disabled>login</button>
             </form>
         </div>
     </div>
+    <script src="utility/login.js"></script>
 </body>
 </html>

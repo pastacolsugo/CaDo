@@ -62,9 +62,15 @@ router.get('/contest.js', function (req, res, next) {
 router.get('/notyf.css', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/notyf.min.css'));
 });
+
 router.get('/notyf.js', function (req, res, next) {
     res.type('.js');
     res.sendFile(path.join(__dirname, '/../', 'public/scripts/notyf.min.js'));
+});
+
+router.get('/login.js', function (req, res, next) {
+    res.type('.js');
+    res.sendFile(path.join(__dirname, '/../', 'public/scripts/login.js'));
 });
 
 router.get('/lipsum', function (req, res, next) {
