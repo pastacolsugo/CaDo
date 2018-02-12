@@ -1,43 +1,47 @@
-    function padding(n){
-        return (n<10?'0':'')+n.toString();
+function padding(n){
+    return (n<10?'0':'')+n.toString();
+}
+function timeDelta(end){
+    var now=new Date();
+    var res=now.getTime()<end.getTime()?"-":"";
+    var delta=new Date(end.getTime()-now.getTime());
+    res+=delta.getUTCHours().toString()+':'+padding(delta.getMinutes())+':'+padding(delta.getSeconds());
+    return res;
+}
+function getUrlPromise(url) {
+    return new Promise(function(resolve,reject){
+    var webrequest = new XMLHttpRequest();
+    webrequest.open('GET', url, true);
+    webrequest.onload=function(){
+        resolve(webrequest.responseText);
+    };
+    webrequest.send(null);});
+}
+function scoreToClassName(score){
+    var res="Score"
+    res=(score<20? "low":(score==100?"full":"medium"))+res;
+    return res;
+}
+var currentState={
+    "selected": null,
+    "taskStatus":{},
+    "dismissedAlerts":[]
+}
+function select(id){
+    if(currentState.selected!==null){
+        document.getElementById(currentState.selected).classList.remove("openProblem");
     }
-    function timeDelta(end){
-        var now=new Date();
-        var res=now.getTime()<end.getTime()?"-":"";
-        var delta=new Date(end.getTime()-now.getTime());
-        res+=delta.getUTCHours().toString()+':'+padding(delta.getMinutes())+':'+padding(delta.getSeconds());
-        return res;
-    }
-    function getUrlPromise(url) {
-        return new Promise(function(resolve,reject){
-        var webrequest = new XMLHttpRequest();
-        webrequest.open('GET', url, true);
-        webrequest.onload=function(){
-            resolve(webrequest.responseText);
-        };
-        webrequest.send(null);});
-    }
-    function scoreToClassName(score){
-        var res="Score"
-        res=(score<20? "low":(score==100?"full":"medium"))+res;
-        return res;
-    }
-    var currentState={
-        "selected": null,
-        "taskStatus":{},
-        "dismissedAlerts":[]
-    }
-    function select(id){
-        if(currentState.selected!==null){
-            document.getElementById(currentState.selected).classList.remove("openProblem");
-        }
-        currentState.selected=id;
-        document.getElementById(currentState.selected).classList.add("openProblem");
-    }
-    var contest=null;
+    currentState.selected=id;
+    document.getElementById(currentState.selected).classList.add("openProblem");
+}
+function showComms(id) {
+    select(id);
+    console.log(id);
+}
+var contest = null;
 
 
-//    ==========================================================
+//   ==========================================================
 
 var notificationCenter = new Notyf();
 
@@ -54,6 +58,7 @@ getUrlPromise("/api/contest").then(function(response){
     setInterval(function(){
         document.getElementById("timer").innerHTML=timeDelta(endDate);
     }, 1000);
+    document.getElementsByClassName("content")[0].innerHTML = '<h2>Si parte!</h2><p>Per cominciare seleziona un problema dalla lista a sinitra</p>';
     var sidebar=document.getElementById("sidebar");
     for(var i=0;i<contest.tasks.length; i++){
         //Questa linea potrebbe essere molto inutile
@@ -83,10 +88,17 @@ getUrlPromise("/api/contest").then(function(response){
         submissions.onclick=(function(){var a=contest.tasks[i].name; return function(){select(a);};})();
         submissions.innerHTML="Sottoposizioni";
         problemBox.appendChild(submissions);
-        sidebar.appendChild(problemBox);
+        var comms=document.createElement("a");
+        comms.classList.add("link");
+        comms.classList.add("submissionLink");
+        comms.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
+        comms.innerHTML="Sottoposizioni";
+        problemBox.appendChild(comms);
         var alert=document.createElement("div");
         alert.classList.add("alert-icon");
+        alert.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
         problemBox.appendChild(alert);
+        sidebar.appendChild(problemBox);
     }
     // This function has to be replaced with a WebSockets handler to update alerts in real time when communication is published
 
