@@ -181,17 +181,17 @@ div.problemTitle {
     transition: ease-in .1s;
 }
 
-.greenScore {
+.fullScore {
     /*background: green;*/
     background-color: var(--contest-problem-fullScore);
 }
 
-.orangeScore {
+.mediumScore {
     /*background: orange;*/
     background-color: var(--contest-problem-mediumScore);
 }
 
-.redScore {
+.lowScore {
     /*background: red;*/
     background-color: var(--contest-problem-lowScore);
 }

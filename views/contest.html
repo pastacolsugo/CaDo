@@ -16,6 +16,20 @@
         res+=delta.getUTCHours().toString()+':'+padding(delta.getMinutes())+':'+padding(delta.getSeconds());
         return res;
     }
+    function getUrlPromise(url) {
+        return new Promise(function(resolve,reject){
+        var webrequest = new XMLHttpRequest();
+        webrequest.open('GET', url, true);
+        webrequest.onload=function(){
+            resolve(webrequest.responseText);
+        };
+        webrequest.send(null);});
+    }
+    function scoreToClassName(score){
+        var res="Score"
+        res=(score<20? "low":(score==100?"full":"medium"))+res;
+        return res;
+    }
     </script>
     <link rel="stylesheet" href="/stylesheets/master.css">
     <link rel="stylesheet" href="/stylesheets/contest.css">
@@ -28,59 +42,9 @@
         <div class="userName">pastacolsugo</div>
     </div>
 
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <div class="timer">
             <p id="timer"></p>
-        </div>
-
-        <div class="problemBox greenScore" id="noccioline">
-            <div class="problemTitle">Noccioline</div>
-            <div class="score">100</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox orangeScore" id="magneti">
-            <div class="problemTitle">Magneti</div>
-            <div class="score">85</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox orangeScore openProblem" id="taxi">
-            <div class="problemTitle">Taxi</div>
-            <div class="score">60</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox greenScore" id="gravity">
-            <div class="problemTitle">Gravity</div>
-            <div class="score">100</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox redScore alert" id="canoa">
-            <div class="problemTitle">Canoa</div>
-            <div class="score">10</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox redScore" id="fuga">
-            <div class="problemTitle">Fuga</div>
-            <div class="score">5</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
-        </div>
-        <div class="problemBox greenScore" id="annoluce">
-            <div class="problemTitle">Anno Luce</div>
-            <div class="score">100</div>
-            <a class="link statementLink" href="#">Testo</a>
-            <a class="link submissionLink" href="#">Sottoposizioni</a>
-            <div class="alert-icon"></div>
         </div>
     </div>
 
@@ -88,12 +52,49 @@
         <div class="lipsum"></div>
     </div>
     <script type="text/javascript">
-        var endDate=new Date(new Date().getTime()+3*3600000);
-        console.log(endDate.toString())
-        // this script automatically executes when the page finishes loading
-        setInterval(function(){
-            document.getElementById("timer").innerHTML=timeDelta(endDate);
-        }, 1000);
+        getUrlPromise("/api/contest").then(function(response){
+            var contest=JSON.parse(response);
+            var endDate=new Date(contest.end_date);
+            setInterval(function(){
+                document.getElementById("timer").innerHTML=timeDelta(endDate);
+            }, 1000);
+            var sidebar=document.getElementById("sidebar");
+            for(var i=0;i<contest.tasks.length; i++){
+                var problemBox=document.createElement("div");
+                problemBox.id=contest.tasks[i].name;
+                problemBox.classList.add("problemBox");
+                problemBox.classList.add(scoreToClassName(contest.tasks[i].score));
+                var title=document.createElement("div");
+                title.classList.add("problemTitle");
+                title.innerHTML=contest.tasks[i].full_name;
+                problemBox.appendChild(title);
+                var score=document.createElement("div");
+                score.classList.add("score");
+                score.innerHTML=contest.tasks[i].score;
+                problemBox.appendChild(score);
+                var statement=document.createElement("a");
+                statement.classList.add("link");
+                statement.classList.add("statementLink");
+                statement.innerHTML="Testo";
+                statement.href="/api/task?task="+encodeURIComponent(contest.tasks[i].name);
+                problemBox.appendChild(statement);
+                var submissions=document.createElement("a");
+                submissions.classList.add("link");
+                submissions.classList.add("submissionLink");
+                submissions.innerHTML="Sottoposizioni";
+                problemBox.appendChild(submissions);
+                sidebar.appendChild(problemBox);
+                var alert=document.createElement("div");
+                alert.classList.add("alert-icon");
+                problemBox.appendChild(alert);
+            }
+            getUrlPromise('/api/alerts').then(function(res){
+                var alerts=JSON.parse(res);
+                for(var i=0;i<alerts.length;i++){
+                    document.getElementById(alerts[i]).classList.add("alert");
+                }
+            });
+        });
     </script>
     <script src="/utility/lipsum.js" type="text/javascript"></script><!--This is because I was tired of looking at a really long HTML and because it's now really easy to put some filler text (just include the script and an element with class="lipsum" and you're done)-->
 </body>
