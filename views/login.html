@@ -15,9 +15,9 @@
             <h6>CMS</h6>
         </div>
         <div id="formPart">
-            <form class="form">
-                <input onkeyup="chkFormDta()" id="username" type="text" placeholder="username">
-                <input onkeyup="chkFormDta()" id="password" type="password" placeholder="password">
+            <form class="form" method="POST" action="login">
+                <input onkeyup="chkFormDta()" name="username" id="username" type="text" placeholder="username">
+                <input onkeyup="chkFormDta()" name="password" id="password" type="password" placeholder="password">
                 <button onclick="login()" id="login" type = "submit" disabled>login</button>
             </form>
         </div>
