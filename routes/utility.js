@@ -53,6 +53,14 @@ router.get('/lipsum.js', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', 'public/scripts/lipsum.js'));
 });
 
+router.get('/notyf.css', function(req, res, next){
+    res.sendFile(path.join(__dirname, '/../', 'public/stylesheets/notyf.min.css'));
+});
+router.get('/notyf.js', function (req, res, next) {
+    res.type('.js');
+    res.sendFile(path.join(__dirname, '/../', 'public/scripts/notyf.min.js'));
+});
+
 router.get('/lipsum', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', 'public/lipsum.txt'));
 });
