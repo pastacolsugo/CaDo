@@ -75,6 +75,7 @@
             document.getElementById("contest-heading").innerHTML=contest.name;
             document.getElementById("contest-title").innerHTML=contest.name;
             var endDate=new Date(contest.end_date);
+            document.getElementById("timer").innerHTML=timeDelta(endDate);
             setInterval(function(){
                 document.getElementById("timer").innerHTML=timeDelta(endDate);
             }, 1000);
