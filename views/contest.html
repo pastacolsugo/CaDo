@@ -5,8 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!--Added the viewport meta tag to view the site properly on mobile-->
     <title>Contest Setup</title>
-    <!-- CIAO DA CASA SELVA -->
-
+    <script type="text/javascript">
+    function padding(n){
+        return (n<10?'0':'')+n.toString();
+    }
+    function timeDelta(end){
+        var now=new Date();
+        var res=now.getTime()<end.getTime()?"-":"";
+        var delta=new Date(end.getTime()-now.getTime());
+        res+=delta.getUTCHours().toString()+':'+padding(delta.getMinutes())+':'+padding(delta.getSeconds());
+        return res;
+    }
+    </script>
     <link rel="stylesheet" href="/stylesheets/master.css">
     <link rel="stylesheet" href="/stylesheets/contest.css">
 </head>
@@ -20,52 +30,52 @@
 
     <div class="sidebar">
         <div class="timer">
-            <p>-1:78:92</p>
+            <p id="timer"></p>
         </div>
 
-        <div class="problemBox greenScore" id="problem1">
-            <div class="problemTitle" style="inline">Noccioline</div>
-            <div class="score" style="inline">100</div>
+        <div class="problemBox greenScore" id="noccioline">
+            <div class="problemTitle">Noccioline</div>
+            <div class="score">100</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox orangeScore" id="problem2">
+        <div class="problemBox orangeScore" id="magneti">
             <div class="problemTitle">Magneti</div>
             <div class="score">85</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox orangeScore openProblem" id="problem3">
-            <div class="problemTitle" style="inline">Taxi</div>
-            <div class="score" style="inline">60</div>
+        <div class="problemBox orangeScore openProblem" id="taxi">
+            <div class="problemTitle">Taxi</div>
+            <div class="score">60</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox greenScore" id="problem4">
+        <div class="problemBox greenScore" id="gravity">
             <div class="problemTitle">Gravity</div>
             <div class="score">100</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox redScore alert" id="problem5">
-            <div class="problemTitle" style="inline">Canoa</div>
-            <div class="score" style="inline">10</div>
+        <div class="problemBox redScore alert" id="canoa">
+            <div class="problemTitle">Canoa</div>
+            <div class="score">10</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox redScore" id="problem6">
+        <div class="problemBox redScore" id="fuga">
             <div class="problemTitle">Fuga</div>
             <div class="score">5</div>
             <a class="link statementLink" href="#">Testo</a>
             <a class="link submissionLink" href="#">Sottoposizioni</a>
             <div class="alert-icon"></div>
         </div>
-        <div class="problemBox greenScore" id="problem7">
+        <div class="problemBox greenScore" id="annoluce">
             <div class="problemTitle">Anno Luce</div>
             <div class="score">100</div>
             <a class="link statementLink" href="#">Testo</a>
@@ -78,7 +88,12 @@
         <div class="lipsum"></div>
     </div>
     <script type="text/javascript">
+        var endDate=new Date(new Date().getTime()+3*3600000);
+        console.log(endDate.toString())
         // this script automatically executes when the page finishes loading
+        setInterval(function(){
+            document.getElementById("timer").innerHTML=timeDelta(endDate);
+        }, 1000);
     </script>
     <script src="/utility/lipsum.js" type="text/javascript"></script><!--This is because I was tired of looking at a really long HTML and because it's now really easy to put some filler text (just include the script and an element with class="lipsum" and you're done)-->
 </body>
