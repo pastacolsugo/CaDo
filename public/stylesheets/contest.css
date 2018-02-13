@@ -133,12 +133,6 @@ div.problemTitle {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-
-    margin-top: 0.3em;
-    margin-bottom: 0.2em;
-
-    font-weight: 100;
-    font-size: 10pt;
 }
 
 .submissionLink {
@@ -146,10 +140,20 @@ div.problemTitle {
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
+}
 
+.commsLink {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.submissionLink, .commsLink, .statementLink{
     font-weight: 100;
     font-size: 10pt;
 
+    margin-top:0.3em;
     margin-bottom: 0.2em;
 }
 

@@ -135,9 +135,9 @@ getUrlPromise("/api/contest").then(function(response){
         problemBox.appendChild(submissions);
         var comms=document.createElement("a");
         comms.classList.add("link");
-        comms.classList.add("submissionLink");
-        comms.onclick=(function(){var a=contest.tasks[i].name; return function(){showSubmissions(a);};})();
-        comms.innerHTML="Sottoposizioni";
+        comms.classList.add("commsLink");
+        comms.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
+        comms.innerHTML="Comunicazioni";
         problemBox.appendChild(comms);
         var alert=document.createElement("div");
         alert.classList.add("alert-icon");
