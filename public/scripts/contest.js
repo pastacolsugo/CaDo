@@ -41,8 +41,12 @@ function select(id){
 }
 
 function showComms(id) {
-    select(id);
-    console.log(id);
+    //Function to show all communications and hide alert icons (if any).
+    document.getElementsByClassName("commsBtn")[0].classList.remove("active");
+    var haveAlert = document.getElementsByClassName("alert");
+    for (var i = 0; i < haveAlert.length; i++){
+        haveAlert[i].classList.remove("alert");
+    }
 }
 
 function showSubmissions(id) {
@@ -106,7 +110,12 @@ getUrlPromise("/api/contest").then(function(response){
         document.getElementById("timer").innerHTML=timeDelta(endDate);
     }, 1000);
     document.getElementsByClassName("content")[0].innerHTML = '<h2>Si parte!</h2><p>Per cominciare seleziona un problema dalla lista a sinitra</p>';
-    var sidebar=document.getElementById("sidebar");
+    var sidebar = document.getElementById("sidebar");
+    var comms=document.createElement("div");
+    comms.classList.add("commsBtn");
+    comms.onclick=showComms;
+    comms.innerHTML="Comunicazioni";
+    sidebar.appendChild(comms);
     for(var i=0;i<contest.tasks.length; i++){
         currentState.taskFullName[contest.tasks[i].name] = contest.tasks[i].full_name;
         var problemBox=document.createElement("div");
@@ -133,12 +142,6 @@ getUrlPromise("/api/contest").then(function(response){
         submissions.onclick=(function(){var a=contest.tasks[i].name; return function(){showSubmissions(a);};})();
         submissions.innerHTML="Sottoposizioni";
         problemBox.appendChild(submissions);
-        var comms=document.createElement("a");
-        comms.classList.add("link");
-        comms.classList.add("commsLink");
-        comms.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
-        comms.innerHTML="Comunicazioni";
-        problemBox.appendChild(comms);
         var alert=document.createElement("div");
         alert.classList.add("alert-icon");
         alert.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
@@ -148,7 +151,11 @@ getUrlPromise("/api/contest").then(function(response){
     // This function has to be replaced with a WebSockets handler to update alerts in real time when communication is published
 
     getUrlPromise('/api/alerts').then(function(res){
-        var alerts=JSON.parse(res);
+        var alerts = JSON.parse(res);
+        if (alerts.length > 0) {
+            document.getElementsByClassName("commsBtn")[0].classList.add("active");
+            notificationCenter.confirm("Hai " + alerts.length.toString() + " nuov"+(alerts.length==1?'a':'e')+" comunicazion"+(alerts.length==1?'e':'i')+" da leggere");
+        }
         for(var i=0;i<alerts.length;i++){
             if(currentState.dismissedAlerts.indexOf(alerts[i].id)===-1){
                 document.getElementById(alerts[i].task).classList.add("alert");
