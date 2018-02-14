@@ -32,9 +32,36 @@
 
 
 h1, h2, h3, h4, h5, h6 {
-    padding:0.5em;
+    padding: 0.5em;
 }
 
 body{
     font-family: "DejaVuMono", monospace;
+}
+
+.button{
+    display: block;
+    padding: .5em;
+    background-color: var(--button-active-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .1em;
+}
+
+.button.inline{
+    display: inline-block !important;
+}
+
+.button.disabled{
+    background-color: var(--button-inactive-bg) !important;
+}
+
+a.button, a.button:visited {
+    color: var(--button-text) !important;
+    text-decoration: none !important;
+}
+
+.nopadding{
+    padding:0 !important;
 }

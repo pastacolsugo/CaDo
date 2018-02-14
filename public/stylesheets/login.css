@@ -46,7 +46,7 @@ div.formTitle h1{
 
 .form input{
     padding: 0.25em;
-    border:1px solid var(--login-field-border);
+    border:1px solid var(--field-border);
 }
 
 .form button{

@@ -80,6 +80,15 @@ router.get('/statement', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))
 });
 
+router.get('/submissionDownload', function (req, res, next) {
+    // query the database for submission source and its relative task name that is to be used as the file name.
+    res.setHeader('Content-disposition', 'attachment; filename=' + req.query.id + '.pdf');//req.query.task is the id of the requested file
+    // remember to set the correct mime-type
+    res.type(".pdf");
+    res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))
+});
+
+
 router.get('/submissions', function (req, res, next) {
     //req.query.task
     res.type('.json');

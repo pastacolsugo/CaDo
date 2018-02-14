@@ -56,7 +56,7 @@ function showSubmissions(id) {
         var container = document.getElementsByClassName('content')[0];
         container.innerHTML = '';
         var title = document.createElement('h2');
-        title.innerHTML = currentState.taskFullName[id];
+        title.innerHTML = currentState.taskFullName[id] + ' - sottoposizioni';
         container.appendChild(title);
         if(data.length == 0) {
             var message = document.createElement('p');
@@ -67,17 +67,37 @@ function showSubmissions(id) {
             var dow=["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
             var statusMapping = {"compiling":"In compilazione", "evaluating":"In valutazione"}
             var list = document.createElement('table');
+            list.className = "submissionsList";
+            var head = document.createElement('tr');
+            var h1 = document.createElement('th');
+            var h2 = document.createElement('th');
+            var h3 = document.createElement('th');
+            h1.innerHTML='Data';
+            h2.innerHTML='Stato';
+            head.appendChild(h1);
+            head.appendChild(h2);
+            head.appendChild(h3);
+            list.appendChild(head);
             for(var i = data.length -1; i>=0; i--){
                 var submission = document.createElement('tr');
                 var cellDate = document.createElement('td');
                 var cellScore = document.createElement('td');
                 var cellDL = document.createElement('td');
                 var submissionDate = new Date(data[i].date);
+                cellDL.className='nopadding';
+                cellScore.className='nopadding';
+                var scoreWrapper=document.createElement('div');
+                scoreWrapper.className = 'submissionScore';
                 cellDate.innerHTML=dow[submissionDate.getDay()]+" "+padding(submissionDate.getDate(), 2)+'/'+padding(submissionDate.getMonth()+1, 2).toString()+'/'+padding(submissionDate.getFullYear(), 4).toString()+" alle "+padding(submissionDate.getHours(), 2).toString()+':'+padding(submissionDate.getMinutes(), 2).toString();
-                cellScore.innerHTML = data[i].status == 'evaluated' ? data[i].score : statusMapping[data[i].status];
-                cellScore.classList.add("submissionScore");
-                cellScore.classList.add(data[i].status == 'evaluated' ? scoreToClassName(data[i].score):'evaluating');
-                cellDL.innerHTML = "DownloadCheNonWorka";
+                scoreWrapper.innerHTML = data[i].status == 'evaluated' ? data[i].score : statusMapping[data[i].status];
+                scoreWrapper.classList.add("submissionScore");
+                scoreWrapper.classList.add(data[i].status == 'evaluated' ? scoreToClassName(data[i].score):'evaluating');
+                cellScore.appendChild(scoreWrapper);
+                var dlBtn = document.createElement('a');
+                dlBtn.innerHTML = 'Download';
+                dlBtn.className = 'button';
+                dlBtn.href = '/api/submissionDownload?id='+encodeURIComponent(data[i].id);
+                cellDL.appendChild(dlBtn);
                 submission.appendChild(cellDate);
                 submission.appendChild(cellScore);
                 submission.appendChild(cellDL);

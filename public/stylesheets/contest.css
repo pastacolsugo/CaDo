@@ -210,6 +210,12 @@ div.problemTitle {
     grid-row-end: 3;
 }
 
+div.submissionScore{
+    padding: 0.5em;
+    margin: .5em;
+    border-radius: .2em;
+}
+
 .submissionScore.lowScore, .submissionScore.mediumScore, .submissionScore.highScore{
     color: var(--contest-problem-list-score);
     text-align: center;
@@ -253,4 +259,23 @@ div.problemTitle {
     margin: 0;
     border-radius: 0;
     transition: ease-in .1s;
+}
+
+.submissionsList tr td{
+    padding:.75em;
+    border-color:var(--field-border);
+    border-width: 1px 0;
+    border-style: solid;
+}
+
+.submissionsList {
+    border-collapse: collapse;
+}
+
+.submissionsList tr:nth-child(1) td{
+    border-top: none !important;
+}
+
+.submissionsList tr:nth-child(n) td{
+    border-bottom: none !important;
 }
