@@ -15,9 +15,9 @@ function getSession() {
 }
 function checkSession() {
     var session = getSession();
-    console.log(new Date().getTime());
+    /*console.log(new Date().getTime());
     console.log(session.expire_date);
-    console.log(new Date(session.expire_date).getTime());
+    console.log(new Date(session.expire_date).getTime());*/
     return session === null ? false : (new Date().getTime() <= new Date(session.expire_date).getTime());
 }
 

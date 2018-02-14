@@ -13,7 +13,7 @@ function pwdgen() {
         var r = Math.random();
         r *= dic.length;
         r = (r - r % 1);
-        console.log(r);
+        //console.log(r);
         if (i % 2 == 0) pwd += dic[r];
         else pwd += dic[r].toUpperCase();
         if (i < pwdLen - 1) pwd += '-';
