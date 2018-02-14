@@ -74,7 +74,7 @@ router.get('/alerts', function (req, res, next) {
     ]));
 });
 
-router.get('/task', function (req, res, next) {
+router.get('/statement', function (req, res, next) {
     res.setHeader('Content-disposition', 'attachment; filename=' + req.query.task + '.pdf');//req.query.task is the name of the requested file
     res.type(".pdf");
     res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))

@@ -134,7 +134,7 @@ getUrlPromise("/api/contest").then(function(response){
         statement.classList.add("link");
         statement.classList.add("statementLink");
         statement.innerHTML="Testo";
-        statement.href="/api/task?task="+encodeURIComponent(contest.tasks[i].name);
+        statement.href="/api/statement?task="+encodeURIComponent(contest.tasks[i].name);
         problemBox.appendChild(statement);
         var submissions=document.createElement("a");
         submissions.classList.add("link");
