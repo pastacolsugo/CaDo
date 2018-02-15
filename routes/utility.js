@@ -16,9 +16,21 @@ router.get('/font/dejavumono', function(req, res, next){
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/DejaVuSansMono.ttf'));
 });
 
-router.get('/font/material', function(req, res, next){
+router.get('/font/material-eot', function(req, res, next){
     res.type('.eot');
     res.sendFile(path.join(__dirname, '/../', 'public/utility/font/material.eot'));
+});
+router.get('/font/material-w2', function(req, res, next){
+    res.type('.woff2');
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/material.woff2'));
+});
+router.get('/font/material-w', function(req, res, next){
+    res.type('.woff');
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/material.woff'));
+});
+router.get('/font/material-ttf', function(req, res, next){
+    res.type('.ttf');
+    res.sendFile(path.join(__dirname, '/../', 'public/utility/font/material.ttf'));
 });
 
 router.get('/alert', function (req, res, next) {

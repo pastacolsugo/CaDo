@@ -163,18 +163,19 @@ div.problemTitle {
     grid-row-start: 3;
     grid-row-end: 4;
     display: none;
+    color: var(--contest-problem-list-alert);
+    cursor: pointer;
 }
-.alert-icon::before{
-    background-image: url('/utility/alert');
-    content:'';
+/*.alert-icon::before{
+    content:'&#xE002;';
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
     height: 100%;
-    cursor: pointer;
-}
-.problemBox.alert .alert-icon::before, .problemBox.alert .alert-icon{
+    
+}*/
+.problemBox.alert .alert-icon{
     display: block;
 }
 

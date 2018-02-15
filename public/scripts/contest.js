@@ -165,6 +165,9 @@ getUrlPromise("/api/contest").then(function(response){
         problemBox.appendChild(submissions);
         var alert=document.createElement("div");
         alert.classList.add("alert-icon");
+        alert.classList.add("material-icons");
+        alert.innerHTML = "&#xE002";
+        //alert.innerHTML = "&#xE85A";
         alert.onclick=(function(){var a=contest.tasks[i].name; return function(){showComms(a);};})();
         problemBox.appendChild(alert);
         sidebar.appendChild(problemBox);
