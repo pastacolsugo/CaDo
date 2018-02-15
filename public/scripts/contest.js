@@ -72,7 +72,7 @@ function showSubmissions(id) {
             var h1 = document.createElement('th');
             var h2 = document.createElement('th');
             var h3 = document.createElement('th');
-            h1.innerHTML='Data';
+            h1.innerHTML='Orario';
             h2.innerHTML='Stato';
             head.appendChild(h1);
             head.appendChild(h2);
@@ -88,14 +88,15 @@ function showSubmissions(id) {
                 cellScore.className='nopadding';
                 var scoreWrapper=document.createElement('div');
                 scoreWrapper.className = 'submissionScore';
-                cellDate.innerHTML=dow[submissionDate.getDay()]+" "+padding(submissionDate.getDate(), 2)+'/'+padding(submissionDate.getMonth()+1, 2).toString()+'/'+padding(submissionDate.getFullYear(), 4).toString()+" alle "+padding(submissionDate.getHours(), 2).toString()+':'+padding(submissionDate.getMinutes(), 2).toString();
+                cellDate.innerHTML=padding(submissionDate.getHours(), 2).toString()+':'+padding(submissionDate.getMinutes(), 2).toString();
                 scoreWrapper.innerHTML = data[i].status == 'evaluated' ? data[i].score : statusMapping[data[i].status];
                 scoreWrapper.classList.add("submissionScore");
                 scoreWrapper.classList.add(data[i].status == 'evaluated' ? scoreToClassName(data[i].score):'evaluating');
                 cellScore.appendChild(scoreWrapper);
                 var dlBtn = document.createElement('a');
-                dlBtn.innerHTML = 'Download';
-                dlBtn.className = 'button';
+                dlBtn.innerHTML = 'file_download';
+                //dlBtn.innerHTML = '&#xE2C4;';
+                dlBtn.className = 'button material-icons';
                 dlBtn.href = '/api/submissionDownload?id='+encodeURIComponent(data[i].id);
                 cellDL.appendChild(dlBtn);
                 submission.appendChild(cellDate);
