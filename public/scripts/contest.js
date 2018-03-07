@@ -1,8 +1,10 @@
 function padding(n){
+    //Function to bad a number to make it two digits long.
     return (n<10?'0':'')+n.toString();
 }
 
-function timeDelta(end){
+function timeDelta(end) {
+    //get the remaining time between now and a specific Date
     var now=new Date();
     var res=now.getTime()<end.getTime()?"-":"";
     var delta=new Date(end.getTime()-now.getTime());
@@ -11,6 +13,7 @@ function timeDelta(end){
 }
 
 function getUrlPromise(url) {
+    //Make a GET request and return a Promise which whill resolve() with the response
     return new Promise(function(resolve,reject){
     var webrequest = new XMLHttpRequest();
     webrequest.open('GET', url, true);
@@ -20,19 +23,21 @@ function getUrlPromise(url) {
     webrequest.send(null);});
 }
 
-function scoreToClassName(score){
+function scoreToClassName(score) {
+    //map the score to CSS classes
     var res="Score"
     res=(score<20? "low":(score==100?"full":"medium"))+res;
     return res;
 }
-
-var currentState={
+//Variable to store some state about the contest. Not sure yet wether it's needed or not
+var currentState = {
     "selected": null,
     "taskFullName":{},
     "dismissedAlerts":[]
 }
 
-function select(id){
+function select(id) {
+    //Select the problem's tab
     if(currentState.selected!==null){
         document.getElementById(currentState.selected).classList.remove("openProblem");
     }
@@ -50,6 +55,7 @@ function showComms(id) {
 }
 
 function showSubmissions(id) {
+    //Open the submission's panel for a determined task
     select(id);
     getUrlPromise('/api/submissions?task=' + encodeURIComponent(id)).then(function(apijson){
         var data = JSON.parse(apijson);
@@ -122,15 +128,19 @@ notificationCenter.confirm("Benvenuto! Notifica di prova");
 setTimeout(function(){notificationCenter.alert("Messaggio di errore");},1500)
 
 getUrlPromise("/api/contest").then(function(response){
-    contest=JSON.parse(response);
+    contest = JSON.parse(response);
+    //Set the contest's title according to the API response
     document.getElementById("contest-heading").innerHTML=contest.name;
-    document.getElementById("contest-title").innerHTML=contest.name;
+    document.getElementById("contest-title").innerHTML = contest.name;
+    //Set the contest's ending date according to the API respones. Here changes could be made to update the ending date.
     var endDate=new Date(contest.end_date);
-    document.getElementById("timer").innerHTML=timeDelta(endDate);
+    document.getElementById("timer").innerHTML = timeDelta(endDate);
+    //Update the timer
     setInterval(function(){
         document.getElementById("timer").innerHTML=timeDelta(endDate);
     }, 1000);
     document.getElementsByClassName("content")[0].innerHTML = '<h2>Si parte!</h2><p>Per cominciare seleziona un problema dalla lista a sinitra</p>';
+    //Dynamic generation of the page
     var sidebar = document.getElementById("sidebar");
     var comms=document.createElement("div");
     comms.classList.add("commsBtn");
@@ -174,7 +184,8 @@ getUrlPromise("/api/contest").then(function(response){
     }
     // This function has to be replaced with a WebSockets handler to update alerts in real time when communication is published
 
-    getUrlPromise('/api/alerts').then(function(res){
+    getUrlPromise('/api/alerts').then(function (res) {
+        //Read the alerts and act accordingly
         var alerts = JSON.parse(res);
         if (alerts.length > 0) {
             document.getElementsByClassName("commsBtn")[0].classList.add("active");
