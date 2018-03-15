@@ -90,3 +90,17 @@ This colection contains all users. It's made out of `User` as below.
     "isRanked": true
 }
 ```
+
+## `sessions` collection
+
+This colection contains all active sessions. It's made out of `Session` as below.
+
+### Session
+
+```json
+{
+    "id": "session id",
+    "full_name": "the username",
+    "expire_date": "expiration date in Date object .toString()"
+}
+```

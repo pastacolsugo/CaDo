@@ -1,0 +1,74 @@
+@font-face {
+    font-family: DejaVuMono;
+    src: url(/utility/font/dejavumono);
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 15% auto;
+    grid-template-columns: 5% 3% auto 3% 5%;
+    /*                    1  2  3    4  5  6   */
+
+    font-family: "DejaVuMono";
+    background-color: #b4e800;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.header {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    /*background-color: #f37000*/
+    background-color: #009b7d
+}
+
+.header h1 {
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+
+.form {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #3ed100;
+    padding-left: 1.5em;
+    padding-top: 1.5em;
+    padding-bottom: 30px;
+}
+
+.form .textInput {
+    font-family: "DejaVuMono";
+    font-size: 1.5em;
+    padding: .5em; 
+    border-right: 5em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    width: calc(100% - 2em);
+}
+
+.form .numberInput {
+    font-family: "DejaVuMono";
+    font-size: 1.5em;
+    padding: .5em; 
+    border-right: 5em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    width: calc(100% - 2em);
+}
+
+#pulzante {
+    font-size: 1.5em;
+    height: 2em;
+    width: 5em;
+    margin-top: 1em;
+    color: white;
+    background-color: black;
+    border: 1px solid #ccc;
+}

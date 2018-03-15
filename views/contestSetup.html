@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--Added the viewport meta tag to view the site properly on mobile-->
+    <title>Contest Setup</title>
+    <!-- CIAO DA CASA SELVA -->
+
+    <link rel="stylesheet" href="/stylesheets/contestSetup.css">
+    <script type="text/javascript">
+        // function to fetch the form content and organizing it into a pretty object
+        var getFormData = function () {
+            // retrieving an array containing each form element
+            var form = document.getElementById('form');
+
+            // empty object initialization
+            var contest = {};
+    
+            // getting each value by index
+            // I don't like this approach, I would rather use a key-string, like the input "name" - ugo
+            contest.name = form.getElementById('contestName');
+            contest.teamNumber = form.getElementById('teamNumber');
+            contest.tutor = form.getElementById('tutor');
+
+            // logging data to the console, just for test purposes
+            console.log(contest);
+        }
+    </script>
+</head>
+
+<body class="container">
+    <div class="header">
+       <h1>CaDo Contest Setup Page</h1>
+    </div>
+
+    <div class="form">
+        <form id="form" action="null" method="post" enctype="multipart/form-data">
+            <input type="text" id="contestName" class="textInput" name="nomeGara" placeholder="nome gara" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
+            <input type="number" id="teamNumber" class="numberInput" name="nomeGara" placeholder="numero squadre" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
+            <input type="text" id="tutor" class="textInput" name="nomeGara" placeholder="tutor" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
+            <input type="text" id="loremIpsum" class="textInput" name="nomeGara" placeholder="lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
+            <input type="text" id="dante" class="textInput" name="nomeGara" placeholder="fatti non foste per viver come bruti, ma per seguir virtute e canoscenza." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
+            <input class="fileUpload" type="file" name="config">
+        </form>
+        <button type="button" id="pulzante" onclick="getFormData()">pulzante</button>
+    </div>
+    <script type="text/javascript">
+        // this script automatically executes when the page finishes loading
+    </script>  
+</body>
+</html>
