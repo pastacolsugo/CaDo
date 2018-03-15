@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -7,8 +8,8 @@ router.get('/', function (req, res, next) {
         var err = new Error('Forbidden');
         err.status = 403;
         return next(err);
-    }
-    res.render('index', { title: 'Express' });
+    }    
+  res.sendFile(path.join(__dirname, '/../', '/views/login.html'));
 });
 
 module.exports = router;
