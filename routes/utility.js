@@ -94,4 +94,12 @@ router.get('/lipsum', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', 'public/lipsum.txt'));
 });
 
+router.get('/login.js', function (req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', 'public/scripts/login.js'));
+});
+
+router.get('/contest.js', function (req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', 'public/scripts/contest.js'));
+});
+
 module.exports = router;

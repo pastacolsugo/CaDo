@@ -200,3 +200,4 @@ getUrlPromise("/api/contest").then(function(response){
     // Add function to communicate with WebSockets which handles updated after each evaluation
 
 });
+

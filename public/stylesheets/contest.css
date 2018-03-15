@@ -27,8 +27,10 @@
     grid-row-start: 1;
     grid-row-end: 2;
 
-    margin-left: 0.5em;
-    margin-right: 0.5em; 
+    display: block;
+    height: 1.25em;
+    margin: auto 1em;
+    padding: .75em 0;
     color: var(--contest-header);
 }
 
@@ -51,7 +53,8 @@
     grid-row-end: 2;
     margin: auto;
     color: white;
-    max-height: 5em;
+    max-height: 80%;
+    padding: 10% 0;
     max-width: 100%;
 }
 
