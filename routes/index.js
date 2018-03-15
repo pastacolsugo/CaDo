@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-
-
-
 function getSession() {
     //if there's no session available then return null
     //otherwise return a session object as described in DataBaseScheme.md
@@ -20,9 +17,22 @@ function checkSession() {
     console.log(new Date(session.expire_date).getTime());*/
     return session === null ? false : (new Date().getTime() <= new Date(session.expire_date).getTime());
 }
+function checkConfig(){
+  //function to check the configuration
+  return true;
+}
 
 router.get('/', function (req, res, next) {
-    if (!checkSession()) {
+    if ((req.ip=='127.0.0.1' && connReady.local == false)||(req.ip!='127.0.0.1' && connReady.global == false)) {
+      //if we can't accept a connection from this IP, then drop it
+        var err = new Error('Forbidden');
+        err.status = 403;
+        return next(err);
+    }
+    else if(!checkConfig()){//If the contest isn't configured yet
+      //configure the contest
+    }
+    else if (!checkSession()) {
         res.redirect("/login");
     }
     else {
