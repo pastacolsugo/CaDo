@@ -68,7 +68,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-global.connReady = { "global": false, "local": false };//Flags that represent wether or not to accept the connections 
+global.connReady = { "global": true, "local": true };//Flags that represent wether or not to accept the connections 
 //Lines to implement DB connection
 //
 MongoClient.connect(url, function(err, client) {
