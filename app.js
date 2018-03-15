@@ -11,6 +11,8 @@ var users = require('./routes/users');
 var contestSetup = require('./routes/contestSetup');
 var utility = require('./routes/utility');
 var login = require('./routes/login');
+var api = require('./routes/api');
+
 
 var app = express();
 
@@ -39,6 +41,7 @@ app.use('/users', users);
 app.use('/contestSetup', contestSetup);
 app.use('/utility', utility);
 app.use('/login', login);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

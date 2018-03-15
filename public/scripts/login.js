@@ -1,19 +1,3 @@
-function login(){
-    var xhttp = new XMLHttpRequest();
-
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    var url = "/"; // url for index
-    var data = "username=" + username.toString() + "&password=" + password.toString();
-
-    xhttp.open("POST", url, true); // POST method
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(data); // send data with post
-
-    console.log(data);
-}
-
 function chkFormDta(){
     if(document.getElementById("username").value==""||document.getElementById("password").value==""){
         document.getElementById("login").disabled=true;
@@ -24,3 +8,15 @@ function chkFormDta(){
         document.getElementById("login").classList.add("validBtn");
     }
 }
+
+function getFragment(){
+    var tmp=location.hash;
+    return tmp.replace('#','');
+}
+
+var notificationCenter = new Notyf();
+
+if(getFragment()!==''){
+    notificationCenter.alert(decodeURIComponent(getFragment()));
+}
+
