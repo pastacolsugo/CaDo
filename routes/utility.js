@@ -102,4 +102,9 @@ router.get('/contest.js', function (req, res, next) {
     res.sendFile(path.join(__dirname, '/../', 'public/scripts/contest.js'));
 });
 
+router.get('/contestSetup.js', function (req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', 'public/scripts/contestSetup.js'));
+});
+
+
 module.exports = router;
