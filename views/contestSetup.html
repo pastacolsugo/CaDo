@@ -17,24 +17,21 @@
 
     <div class="form">
         <form id="form" action="null" method="post" enctype="multipart/form-data">
+            <input type="text" id="tutor" class="textInput" name="nomeGara" placeholder="tutor" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <br>
             <input type="text" id="contestName" class="textInput" name="nomeGara" placeholder="nome gara" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
             <input type="number" id="teamNumber" class="numberInput" name="nomeGara" placeholder="numero squadre" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input type="text" id="tutor" class="textInput" name="nomeGara" placeholder="tutor" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
-            <br>
-            <input type="text" id="loremIpsum" class="textInput" name="nomeGara" placeholder="lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
+            <input type="text" id="loremIpsum" class="textInput" name="nomeGara" placeholder="Concorrenti per squadra" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
             <input type="text" id="dante" class="textInput" name="nomeGara" placeholder="fatti non foste per viver come bruti, ma per seguir virtute e canoscenza." autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false">
             <br>
-            <input class="fileUpload" type="file" name="config">
         </form>
-        <button type="button" id="pulzante" onclick="getFormData()">pulzante</button>
+        <input class="fileUpload" type="file" name="config">
+        <br>
+        <button type="button" class="pulzante" onclick="setTeams()">Imposta Squadre</button>
+        <button type="button" class="pulzante" onclick="postFormData()">Fine!</button>
     </div>
     <script type="text/javascript" src="utility/contestSetup.js"></script>  
 </body>
