@@ -20,7 +20,7 @@ var postFormData = function () {
     // here instead of log, a help is needed to POST the stringContest var into a JSON file in the backend side
 }
 
-var setTeams = function() {
+function setTeams() {
     
     var teamForm = document.getElementById('teamNumber');
     var nTeams = 0;
@@ -40,13 +40,13 @@ var setTeams = function() {
         for(var i=0; i<nTeams; i++){
             var newTeam = document.createElement("input");
             newTeam.type = "text";
-            newTeam.id = "team " + i;
-            newTeam.class = "textInput";
+            newTeam.id = "team" + i;
+            newTeam.className = "textInput";
             newTeam.name = "nomeGara";
-            newTeam.placeholder = newTeam.id + "name";
+            newTeam.placeholder = "team "+ (i+1) + " name";
             newTeam.autocomplete = "false";
             newTeam.autocorrect = "false";
-            newTeam.autocapitaliza = "false";
+            newTeam.autocapitalize = "false";
             newTeam.spellcheck = "false";
             
             document.getElementById('form').appendChild(newTeam);
