@@ -24,26 +24,39 @@ function setTeams() {
     
     var teamForm = document.getElementById('teamNumber');
     var nTeams = 0;
+
     try{
         nTeams = parseInt(teamForm.value);
     }
+    
     catch(err){
         nTeams = 0;
     }
     
-    if (nTeams == 0 ){
-        var advise = document.createElement('h6');
-        advise.innerHTML = "Inserisci un numero di squadre diverso da 0";
-        teamForm.appendChild(advise);
-    }
+    if (nTeams <= 0 )
+        document.getElementById("teamNumberWarning").classList.remove("hide");
+
     else{
-        for(var i=0; i<nTeams; i++){
+
+        document.getElementById("teamNumberWarning").classList.add("hide");
+        
+        var teams = document.getElementsByClassName("teamName");
+        
+        // console.log(teams.length);
+
+        while(teams.length>0){
+            teams[0].remove();
+        }
+
+        for(var i = 0; i < nTeams; i++){
+
             var newTeam = document.createElement("input");
             newTeam.type = "text";
             newTeam.id = "team" + i;
-            newTeam.className = "textInput";
+            newTeam.classList.add("teamName");
+            newTeam.classList.add("textInput");
             newTeam.name = "nomeGara";
-            newTeam.placeholder = "team "+ (i+1) + " name";
+            newTeam.placeholder = "team "+ (i+1).toString() + " name";
             newTeam.autocomplete = "false";
             newTeam.autocorrect = "false";
             newTeam.autocapitalize = "false";
