@@ -34,10 +34,10 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(/utility/font/material-eot);
-  src: url(/utility/font/material-w2) format('woff2'),
-    url(/utility/font/material-w) format('woff'),
-    url(/utility/font/material-ttf) format('truetype');
+  src: url(/utility/font/material.eot),
+    url(/utility/font/material.woff2) format('woff2'),
+    url(/utility/font/material.woff) format('woff'),
+    url(/utility/font/material.ttf) format('truetype');
 }
 
 

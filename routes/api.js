@@ -114,4 +114,8 @@ router.get('/submissions', function (req, res, next) {
     ]));
 });
 
+router.get('/profilePic', function(req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', '/public/unnamed.ico'));
+})
+
 module.exports = router;
