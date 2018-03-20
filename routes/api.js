@@ -13,7 +13,7 @@ function pwdgen() {
         var r = Math.random();
         r *= dic.length;
         r = (r - r % 1);
-        console.log(r);
+        //console.log(r);
         if (i % 2 == 0) pwd += dic[r];
         else pwd += dic[r].toUpperCase();
         if (i < pwdLen - 1) pwd += '-';
@@ -74,11 +74,20 @@ router.get('/alerts', function (req, res, next) {
     ]));
 });
 
-router.get('/task', function (req, res, next) {
+router.get('/statement', function (req, res, next) {
     res.setHeader('Content-disposition', 'attachment; filename=' + req.query.task + '.pdf');//req.query.task is the name of the requested file
     res.type(".pdf");
     res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))
 });
+
+router.get('/submissionDownload', function (req, res, next) {
+    // query the database for submission source and its relative task name that is to be used as the file name.
+    res.setHeader('Content-disposition', 'attachment; filename=' + req.query.id + '.pdf');//req.query.task is the id of the requested file
+    // remember to set the correct mime-type
+    res.type(".pdf");
+    res.sendFile(path.join(__dirname, '/../', '/DatabaseScheme.pdf'))
+});
+
 
 router.get('/submissions', function (req, res, next) {
     //req.query.task
@@ -104,5 +113,9 @@ router.get('/submissions', function (req, res, next) {
         }
     ]));
 });
+
+router.get('/profilePic', function(req, res, next) {
+    res.sendFile(path.join(__dirname, '/../', '/public/unnamed.ico'));
+})
 
 module.exports = router;

@@ -7,7 +7,7 @@ function getUrlPromise(url) {
     };
     webrequest.send(null);});
 }
-getUrlPromise('/utility/lipsum').then(function(r){
+getUrlPromise('/lipsum.txt').then(function(r){
     var e=document.getElementsByClassName("lipsum");
     for(var i=0;i<e.length;i++){
         e[i].innerHTML=r;

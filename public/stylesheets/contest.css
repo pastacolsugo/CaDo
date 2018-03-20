@@ -27,8 +27,10 @@
     grid-row-start: 1;
     grid-row-end: 2;
 
-    margin-left: 0.5em;
-    margin-right: 0.5em; 
+    display: block;
+    height: 1.25em;
+    margin: auto 1em;
+    padding: .75em 0;
     color: var(--contest-header);
 }
 
@@ -51,7 +53,8 @@
     grid-row-end: 2;
     margin: auto;
     color: white;
-    max-height: 5em;
+    max-height: 80%;
+    padding: 10% 0;
     max-width: 100%;
 }
 
@@ -163,22 +166,20 @@ div.problemTitle {
     grid-row-start: 3;
     grid-row-end: 4;
     display: none;
+    color: var(--contest-problem-list-alert);
+    cursor: pointer;
 }
-.alert-icon::before{
-    background-image: url('/utility/alert');
-    content:'';
+/*.alert-icon::before{
+    content:'&#xE002;';
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
     height: 100%;
-}
-.problemBox.alert .alert-icon::before, .problemBox.alert .alert-icon{
+    
+}*/
+.problemBox.alert .alert-icon{
     display: block;
-}
-
-.hide {
-    display: none;
 }
 
 .openProblem, .problemBox:hover {
@@ -209,6 +210,12 @@ div.problemTitle {
     grid-row-end: 3;
 }
 
+div.submissionScore{
+    padding: 0.5em;
+    margin: .5em;
+    border-radius: .2em;
+}
+
 .submissionScore.lowScore, .submissionScore.mediumScore, .submissionScore.highScore{
     color: var(--contest-problem-list-score);
     text-align: center;
@@ -218,4 +225,57 @@ div.problemTitle {
     color: var(--contest-problem-submission-evaluating-text);
     background-color: var(--contest-problem-submission-evaluating-bg);
     text-align: center;
+}
+
+.commsBtn {
+    display: block;
+    grid-template-columns: auto 15%;
+    grid-template-rows: 20% auto auto;
+    /*                 1   2    3    4*/
+    text-align: center;
+    margin: 0.5em 0.7em 0.5em 0;
+    padding: 1em;
+    border-radius: 0 0.2em 0.2em 0;
+    background-color: var(--button-inactive-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes blinker {
+    75% { opacity: 0.4; }
+}
+
+.commsBtn.active{
+    background-color: var(--button-active-bg);
+    animation: blinker 1s ease-in-out infinite;
+}
+.commsBtn.active:hover{
+    background-color: var(--button-active-hover-bg);
+    animation: none;
+}
+
+.commsBtn:hover{
+    margin: 0;
+    border-radius: 0;
+    transition: ease-in .1s;
+}
+
+.submissionsList tr td{
+    padding:.75em;
+    border-color:var(--field-border);
+    border-width: 1px 0;
+    border-style: solid;
+}
+
+.submissionsList {
+    border-collapse: collapse;
+}
+
+.submissionsList tr:nth-child(1) td{
+    border-top: none !important;
+}
+
+.submissionsList tr:nth-child(n) td{
+    border-bottom: none !important;
 }

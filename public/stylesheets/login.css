@@ -46,24 +46,24 @@ div.formTitle h1{
 
 .form input{
     padding: 0.25em;
-    border:1px solid var(--login-field-border);
+    border:1px solid var(--field-border);
 }
 
 .form button{
     border:none;
-    color:var(--login-button-text);
-    background-color: var(--login-button-bg);
+    color: var(--button-text);
+    background-color: var(--button-inactive-bg);
     padding: .5em;
     font-weight: bold;
     cursor: pointer;
 }
 
 .validBtn{
-    background-color: var(--login-button-valid) !important;
+    background-color: var(--button-active-bg) !important;
     cursor:pointer;
 }
 
 .validBtn:hover{
     transition: ease-in-out .2s;
-    background-color: var(--login-button-valid-hover)!important;
+    background-color: var(--button-active-hover-bg)!important;
 }
