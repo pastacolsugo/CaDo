@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(200, 200, 200);
+    background-image: url("../error.png");
+    background-size: 30vh;
+    background-position: center 35vh;
+    background-repeat: no-repeat;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+    color: #595959;
+}
+.techDetails{
+    margin-top:60vh;
+    text-align: center;
+}
+.techDetails p{
+    font-weight: bold;
+    color: #f8f8f8;
+}
+.techDetails h2{
+    margin-top: 0.5em;
+    padding-top: 0;
+    color: #f9f9f9;
+}

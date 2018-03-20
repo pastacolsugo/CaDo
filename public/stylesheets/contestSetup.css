@@ -63,12 +63,21 @@
     width: calc(100% - 2em);
 }
 
-#pulzante {
+.pulzante {
     font-size: 1.5em;
     height: 2em;
-    width: 5em;
+    min-width: 5em;
     margin-top: 1em;
     color: white;
     background-color: black;
-    border: 1px solid #ccc;
+    border: 0;
+}
+
+.pulzante:hover {
+    cursor:pointer;
+    opacity: 0.85;
+}
+
+#teamNumberWarning{
+    margin: 1em 0 0 0;
 }

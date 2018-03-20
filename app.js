@@ -60,24 +60,29 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.locals.message = err.CaDomsg||"Sorry, an error has occurred";
+    res.locals.error = "Error " + err.status+" - "+err.message;
 
     // render the error page
     res.status(err.status || 500);
     res.render('error');
 });
 
-global.connReady = { "global": false, "local": false };//Flags that represent wether or not to accept the connections 
+global.connReady = { "global": true, "local": true };//Flags that represent wether or not to accept the connections 
 //Lines to implement DB connection
 //
 MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     global.db = client.db(dbName);
-
+    //global.connReady.local = true;
+    //Enable local connections
     db.collection('users').find({ admin: true }).toArray().then(function (r) {
         if (r.length == 0) {
             console.log("Instance isn't configured");
+        }
+        else {
+            //global.connReady.global = true;
+            //The admin is configured, so we can make the CaDo public
         }
     });
 });

@@ -87,7 +87,8 @@ This colection contains all users. It's made out of `User` as below.
     "username": "the username",
     "full_name": "user's full name",
     "password": "BCRYPTed password",
-    "isRanked": true
+    "isRanked": true,
+    "admin": false
 }
 ```
 
