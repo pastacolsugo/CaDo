@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/contestSetup', contestSetup);
+app.use('/utility', utility);
 app.use('/login', login);
 app.use('/api', api);
 

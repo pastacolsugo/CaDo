@@ -4,28 +4,28 @@
 
 @font-face {
     font-family: DejaVuMono;
-    src: url(/utility/font/dejavumono);
+    src: url(/utility/font/DejaVuSansMono.ttf);
     font-weight:normal;
     font-style:normal;
 }   
 
 @font-face {
     font-family: DejaVuMono;
-    src: url(/utility/font/dejavumono-bold);
+    src: url(/utility/font/DejaVuSansMono-Bold.ttf);
     font-weight:bold;
     font-style:normal;
 }
 
 @font-face {
     font-family: DejaVuMono;
-    src: url(/utility/font/dejavumono-boldOblique);
+    src: url(/utility/font/DejaVuSansMono-BoldOblique.ttf);
     font-weight:bold;
     font-style:italic;
 }
 
 @font-face {
     font-family: DejaVuMono;
-    src: url(/utility/font/dejavumono-Oblique);
+    src: url(/utility/font/DejaVuSansMono-Oblique.ttf);
     font-weight:normal;
     font-style:italic;
 }
