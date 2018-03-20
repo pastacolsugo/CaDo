@@ -2,5 +2,8 @@ extends layout
 
 block content
   h1= message
-  h2= error.status
-  pre #{error.stack}
+  div(class="techDetails")
+    p Technical details
+    h2= error
+block head
+  link(rel='stylesheet', href='/stylesheets/error.css')
