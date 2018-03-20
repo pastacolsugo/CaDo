@@ -7,7 +7,8 @@ function getSession() {
     return {
         "id": "kjsengkjbs",
         "username": "some-user",
-        "expire_date": new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1).toString()
+        "expire_date": new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1).toString(),
+        "admin": true
     };//example session here;
 }
 function checkSession() {
@@ -29,13 +30,23 @@ router.get('/', function (req, res, next) {
         err.status = 403;
         return next(err);
     }
-    else if(!checkConfig()){//If the contest isn't configured yet
-      //configure the contest
+    else if (req.ip == '127.0.0.1' && connReady.local == true && connReady.global == false) {
+        //If there's no admin yet
+    }
+    else if (!checkConfig()) {
+        //If the contest isn't configured yet
+        //configure the contest
     }
     else if (!checkSession()) {
+        //If the session is not valid
         res.redirect("/login");
     }
+    else if (getSession().admin) {
+        //if the user is an admin, the redirect him to the admin console
+        res.redirect("/console");
+    }
     else {
+        //The session is valid and the user is not an admin, so the user is allowed to see the contest page
         res.redirect("/contest");
     }
 });

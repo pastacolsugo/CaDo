@@ -74,10 +74,15 @@ global.connReady = { "global": true, "local": true };//Flags that represent weth
 MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     global.db = client.db(dbName);
-
+    global.connReady.local = true;
+    //Enable local connections
     db.collection('users').find({ admin: true }).toArray().then(function (r) {
         if (r.length == 0) {
             console.log("Instance isn't configured");
+        }
+        else {
+            global.connReady.global = true;
+            //The admin is configured, so we can make the CaDo public
         }
     });
 });
